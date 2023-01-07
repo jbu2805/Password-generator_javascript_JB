@@ -88,8 +88,11 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-
-
+var length;
+var lowercase;
+var uppercase;
+var special;
+var numeric;
 //Generate a password when the button is clicked
 //Present a series of prompts for password criteria
 //Length of password At least 10 characters but no more than 64.
@@ -100,7 +103,11 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-
+  length = prompt("Enter a length");
+  lowercase = confirm("Include lower case?");
+  uppercase = confirm("Include upper case?");
+  special = confirm("Include special character?");
+  numeric = confirm("Include numbers?")
 }
 
 // Function for getting a random element from an array
@@ -132,8 +139,8 @@ getRandom(array);
 // Function to generate password with user input
 // Function to generate password with user input
 
-function password_generator( len ) {
-  var length = (len)?(len):(8);
+function password_generator( len) {
+  
   var password = "";
   var character = "";
 
@@ -157,7 +164,7 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  password = generatePassword();
+  password = password_generator(length);
   passwordText = document.querySelector('#password');
 
   passwordText.value = password;
@@ -166,6 +173,3 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
-element.addEventListener("click", function password_generator(len) {
-    document.getElementById("#password").innerHTML = password;
-  });
